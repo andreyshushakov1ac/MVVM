@@ -1,0 +1,59 @@
+﻿<Window x:Class="Lab6.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab6"
+        xmlns:vm="clr-namespace:Lab6.ViewModels"
+        mc:Ignorable="d"
+        Title="Возведение в степень" Height="201" Width="403">
+    <Window.DataContext>
+        <vm:MyViewModel/>
+    </Window.DataContext>
+
+
+    <Grid Margin="0,0,0,-6" Width="397" Height="180">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="383*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Margin="40,61,20,61" Content="Результат: " Grid.RowSpan="3" />
+        <Label 
+            x:Name="itog"  
+            Margin="120,61,100,61" 
+            Content="{Binding  Result}" Grid.RowSpan="3" 
+            />
+        <DockPanel Grid.Row="1" Margin="160,33,0,30" Grid.RowSpan="2">
+            <Button  Content="Рассчитать" Height="45" Width="100" Command="{Binding ClickCommand}"></Button>
+            <Button  Content="Сбросить" Height="45" Width="100" Command="{Binding ResetCommand}"></Button>
+        </DockPanel>
+        <CheckBox 
+            Content="квадрат&#xD;&#xA;" 
+            Margin="145,40,-145,22" 
+            Grid.RowSpan="2" 
+            IsChecked="{Binding IsChecked}" Grid.ColumnSpan="3" />
+        <CheckBox 
+            Content="куб" 
+            Margin="249,40,-249,22" 
+            Grid.RowSpan="2" 
+            IsChecked="{Binding IsChecked1}" Grid.ColumnSpan="3"/>
+        <Label Content="Возвести в:" Margin="40,34,269,2"/>
+        <Label Content="Возвести в:" Margin="40,34,269,2"/>
+        <Label Content="Возвести в:" Margin="40,34,269,2"/>
+        <Label Content="Возвести в:" Margin="40,34,269,2"/>
+        <Label Content="Возвести в:" Margin="40,34,269,2"/>
+        <Label Content="Введите число:" Margin="27,10,260,27"/>
+        <TextBox 
+            Name="vvod" 
+            Margin="145,12,192,32" 
+            Background="#FF18DAFF"  
+            Text="{Binding num}" Width="45.85" Height="19.68" TextWrapping="Wrap" HorizontalScrollBarVisibility="Visible" 
+        />
+    </Grid>
+</Window>
